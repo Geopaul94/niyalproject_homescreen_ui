@@ -3,6 +3,7 @@ import 'package:niyal/presentation/widgets/custom_appbar.dart';
 import 'package:niyal/presentation/widgets/custom_explore_products_container.dart';
 import 'package:niyal/presentation/widgets/custom_featured_container.dart';
 import 'package:niyal/presentation/widgets/custom_icon_text_container.dart';
+import 'package:niyal/presentation/widgets/custom_pickball_journey_container.dart';
 import 'package:niyal/presentation/widgets/custom_seeall.dart';
 import 'package:niyal/presentation/widgets/custom_text.dart';
 import 'package:niyal/utilities/constants/constants.dart';
@@ -65,6 +66,46 @@ class HomeScreen extends StatelessWidget {
           ),
           h20,
           CustomSeeall(text: "Begin yout Pickle journey"),
+          h10,
+
+ SizedBox(
+            height: 256,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: List.generate(4, (index) {
+                return CustomPickballJourneyContainer(
+              headline: 'Grip ,Stance,and Swing',
+              time: '20',
+              imagePath: 'assets/river.jpg', gamename: 'Pickball',);
+              }),
+            ),
+          ),
+
+ 
+          CustomSeeall(text: "Your picks"),
+
+
+h20,
+
+ SizedBox(
+            height: 256,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: List.generate(4, (index) {
+                return CustomPickballJourneyContainer(
+              headline: 'Grip ,Stance,and Swing',
+              time: '20',
+              imagePath: 'assets/river.jpg', gamename: 'Table tennis',);
+              }),
+            ),
+          ),
+
+
+
+
+
+
+         
           h200
         ],
       ))),

@@ -17,6 +17,10 @@ const Color white = Colors.white;
 const Color red = Colors.red;
 const Color blue = Colors.blue;
 const Color purple = Colors.purple;
+
+
+const Color darkpurple = Color.fromARGB(255, 103, 6, 120);
+
 const lightgrey = Color.fromARGB(255, 210, 210, 210);
 const darkgreymain = Color.fromARGB(255, 21, 21, 22);
 

@@ -1,43 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:niyal/presentation/widgets/custom_text.dart';
+import 'package:niyal/presentation/screens/home_screen.dart';
 import 'package:niyal/utilities/constants/constants.dart';
 
-class CustomFeaturedContainer extends StatelessWidget {
-  final String headline;
-  final Icon icon;
-  final String time;
-  final String subheading;
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
-  const CustomFeaturedContainer(
-      {super.key,
-      required this.headline,
-      required this.icon,
-      required this.time,
-      required this.subheading});
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
+
+  final _pages = [
+    HomeScreen(),
+    Center(child: Text('Settings')),
+    Center(child: Text('About')),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          bottom: 10,
-          left: 10,
-          right: 0,
-          top: 0,
-          child: Column(
-            children: [
-              CustomText(text: headline),
-              icon, // Use the icon parameter directly
-              CustomText(text: subheading),
-            ],
+    return Scaffold(
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        elevation: 10,
+        selectedItemColor: darkpurple, // Selected item color
+        unselectedItemColor: purple, // Unselected item color
+        showSelectedLabels: true, // Show label for selected item
+        showUnselectedLabels: false, // Hide label for unselected items
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),  BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: 'Explore',
           ),
-        ),
-        Container(
-          color: Colors.black, // Use a named color instead of 'black'
-          height: 300,
-          width: 300,
-        ),
-      ],
+          BottomNavigationBarItem(
+            icon: Icon(Icons.man),
+            label: 'People',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Profile',
+          ),
+        ],
+      ),
     );
   }
 }
