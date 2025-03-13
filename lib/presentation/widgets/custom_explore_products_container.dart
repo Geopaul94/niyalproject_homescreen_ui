@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:niyal/presentation/widgets/custom_text.dart';
+import 'package:niyal/utilities/constants/constants.dart';
 
 class CustomExploreProductsContainer extends StatelessWidget {
   final String imagePath;
-  final String text;
 
   const CustomExploreProductsContainer({
     super.key,
     required this.imagePath,
-    required this.text,
   });
 
   @override
@@ -17,46 +17,65 @@ class CustomExploreProductsContainer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Container(
-            height: 300,
+            height: 250,
             width: 600,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: AssetImage(imagePath), // Background image
-                fit: BoxFit.cover, // Makes image cover the container
+                image: AssetImage(imagePath),
+                fit: BoxFit.cover,
               ),
             ),
           ),
         ),
         Positioned(
-          bottom: 20,
-          left: 10,
+            top: 20,
+            right: 30,
+            child: Icon(
+              Icons.close,
+              color: white,
+            )),
+        Positioned(
+          bottom: 80,
+          left: 30,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Text on the image
               Text(
-                text,
+                'JOOLA',
                 style: const TextStyle(
-                  color: Colors.white, // White text for visibility
-                  fontSize: 18,
+                  color: white,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 10), // Space between text and button
-              // Blue Elevated Button
-              ElevatedButton(
-                onPressed: () {
-                  // Add your button action here
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue, // Blue background
-                  foregroundColor: Colors.white, // White text/icon color
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+              CustomText(
+                text: 'NEXT GENERATION \n EQUIPMENT',
+                color: white,
+              )
+            ],
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          left: 30,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(25)),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurpleAccent, // Blue background
+                    foregroundColor: Colors.white, // White text/icon color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
+                  child: const Text('Explore products'),
                 ),
-                child: const Text('Click Me'),
               ),
             ],
           ),

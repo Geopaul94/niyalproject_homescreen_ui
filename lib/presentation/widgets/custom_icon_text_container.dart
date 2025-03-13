@@ -4,12 +4,14 @@ import 'package:niyal/utilities/constants/constants.dart';
 
 class CustomIconTextContainer extends StatelessWidget {
   final Color color;
+
   final String text;
   final String? image;
   final Icon? icon;
   const CustomIconTextContainer(
       {super.key,
-      this.color = green,
+      this.color = grey,
+   
       required this.text,
       this.image,
       this.icon});
@@ -17,16 +19,19 @@ class CustomIconTextContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:   8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: color),
+              border: Border.all(color: black),
+              borderRadius: BorderRadius.circular(30),
+              color: color),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(7),
             child: Row(
               children: [
                 _buildIconOrImage(),
-                CustomText(text: text),
+                w5,
+                CustomText(text: text ,color: darkpurple,),
               ],
             ),
           )),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:niyal/presentation/widgets/custom_icon_text_container.dart';
+import 'package:niyal/presentation/widgets/custom_text.dart';
+import 'package:niyal/utilities/constants/constants.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
@@ -14,9 +16,26 @@ class CustomAppbar extends StatelessWidget {
           Spacer(),
           Row(
             children: [
-              CustomIconTextContainer(
-                text: "Rewards",
-                icon: Icon(Icons.access_alarm),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: purple),
+                        borderRadius: BorderRadius.circular(30),
+                        color: grey),
+                    child: Padding(
+                      padding: const EdgeInsets.all(7),
+                      child: Row(
+                        children: [
+                          Icon(Icons.abc),
+                          w5,
+                          CustomText(
+                            text: "Rewards",
+                            color: darkpurple,
+                          ),
+                        ],
+                      ),
+                    )),
               ),
             ],
           )

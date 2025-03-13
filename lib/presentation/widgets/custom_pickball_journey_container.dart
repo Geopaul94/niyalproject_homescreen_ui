@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:niyal/presentation/widgets/custom_text.dart';
+import 'package:niyal/utilities/constants/constants.dart';
 
 class CustomPickballJourneyContainer extends StatelessWidget {
   final String headline;
@@ -10,7 +11,8 @@ class CustomPickballJourneyContainer extends StatelessWidget {
       {super.key,
       required this.headline,
       required this.time,
-      required this.imagePath, required this.gamename});
+      required this.imagePath,
+      required this.gamename});
 
   @override
   Widget build(BuildContext context) {
@@ -31,26 +33,15 @@ class CustomPickballJourneyContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                    text: headline, fontSize: 18, fontWeight: FontWeight.bold),
+                    text: headline, fontSize: 18, fontWeight: FontWeight.w600),
                 Row(
                   children: [
-                    Icon(Icons.video_call, size: 18, color: Colors.blue),
-                    Row(
-                      children: [
-                        CustomText(
-                            text: ' ${time}min * ',
-                            fontSize: 14,
-                            color: Colors.blue),
-                     
-                       CustomText(
-                            text: gamename,
-                            fontSize: 14,
-                            color: Colors.blue),
-                     
-                     
-                     
-                      ],
-                    ),
+                    Icon(Icons.video_call, size: 18, color: lightgrey),
+                    w5,
+                    CustomText(
+                        text: ' ${time}min * $gamename',
+                        fontSize: 14,
+                        color: lightgrey),
                   ],
                 ),
               ],

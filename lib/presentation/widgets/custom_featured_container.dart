@@ -7,7 +7,7 @@ class CustomFeaturedContainer extends StatelessWidget {
   final Icon icon;
   final String time;
   final String subheading;
-  final String imagePath; // Added parameter for image
+  final String imagePath;
 
   const CustomFeaturedContainer({
     super.key,
@@ -15,7 +15,7 @@ class CustomFeaturedContainer extends StatelessWidget {
     required this.icon,
     required this.time,
     required this.subheading,
-    required this.imagePath, // Required image path parameter
+    required this.imagePath,
   });
 
   @override
@@ -23,43 +23,44 @@ class CustomFeaturedContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
-        height: 250, // Maximum height as requested
-        width: 250, // Fixed width as requested
+        height: 250,
+        width: 250,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), // Circular radius
+          borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
-            image: AssetImage(imagePath), // Using asset image
-            fit: BoxFit.cover, // Makes image cover the container
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover,
           ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space content
             children: [
-              // Top section
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomText(text: headline),
-                  const SizedBox(height: 8),
-                ],
+              CustomText(
+                text: headline,
+                color: white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
-              // Bottom section
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  icon,
-                  const SizedBox(height: 8),
-                  CustomText(
-                    text: subheading,
+                  Icon(
+                    icon.icon,
+                    size: 18,
                     color: white,
                   ),
-                  const SizedBox(height: 8),
-                  CustomText(text: time),
+                  w5,
+                  CustomText(
+                    text: '$time min  $subheading',
+                    fontSize: 14,
+                    color: white,
+                  ),
+                  w5,
                 ],
               ),
+              h5
             ],
           ),
         ),

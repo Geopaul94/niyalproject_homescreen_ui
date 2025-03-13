@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:niyal/presentation/screens/home_screen.dart';
 import 'package:niyal/utilities/constants/constants.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class BottomNavigations extends StatefulWidget {
+  const BottomNavigations({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _BottomNavigationsState createState() => _BottomNavigationsState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _BottomNavigationsState extends State<BottomNavigations> {
   int _currentIndex = 0;
 
   final _pages = [

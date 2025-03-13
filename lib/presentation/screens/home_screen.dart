@@ -4,6 +4,7 @@ import 'package:niyal/presentation/widgets/custom_explore_products_container.dar
 import 'package:niyal/presentation/widgets/custom_featured_container.dart';
 import 'package:niyal/presentation/widgets/custom_icon_text_container.dart';
 import 'package:niyal/presentation/widgets/custom_pickball_journey_container.dart';
+import 'package:niyal/presentation/widgets/custom_search.dart';
 import 'package:niyal/presentation/widgets/custom_seeall.dart';
 import 'package:niyal/presentation/widgets/custom_text.dart';
 import 'package:niyal/utilities/constants/constants.dart';
@@ -20,32 +21,24 @@ class HomeScreen extends StatelessWidget {
               child: Column(
         children: [
           const CustomAppbar(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Container(
-              color: white,
-              child: Row(
-                children: [
-                  Icon(Icons.search),
-                  CustomText(text: "Meditation..."),
-                  Spacer(),
-                  Icon(Icons.mic)
-                ],
-              ),
-            ),
-          ),
-          h10,
+          customeSearchBar(),
+          h20,
           SizedBox(
-            height: 60,
+            height: 40,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(WordsCount, (index) {
-                return CustomIconTextContainer(text: Words[index]);
+                return CustomIconTextContainer(
+                  text: Words[index],
+                  icon: Icon(Icons.access_time_filled_outlined),
+                );
               }),
             ),
           ),
+          h20,
           CustomExploreProductsContainer(
-              imagePath: 'assets/river.jpg', text: 'Joola'),
+            imagePath: 'assets/river.jpg',
+          ),
           h20,
           CustomSeeall(text: "Featured"),
           h10,
@@ -64,49 +57,41 @@ class HomeScreen extends StatelessWidget {
               }),
             ),
           ),
-          h20,
+          h30,
           CustomSeeall(text: "Begin yout Pickle journey"),
           h10,
-
- SizedBox(
-            height: 256,
+          SizedBox(
+            height: 220,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(4, (index) {
                 return CustomPickballJourneyContainer(
-              headline: 'Grip ,Stance,and Swing',
-              time: '20',
-              imagePath: 'assets/river.jpg', gamename: 'Pickball',);
+                  headline: 'Grip ,Stance,and Swing',
+                  time: '20',
+                  imagePath: 'assets/river.jpg',
+                  gamename: 'Pickball',
+                );
               }),
             ),
           ),
-
- 
+          h10,
           CustomSeeall(text: "Your picks"),
-
-
-h20,
-
- SizedBox(
-            height: 256,
+          h20,
+          SizedBox(
+            height: 215,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(4, (index) {
                 return CustomPickballJourneyContainer(
-              headline: 'Grip ,Stance,and Swing',
-              time: '20',
-              imagePath: 'assets/river.jpg', gamename: 'Table tennis',);
+                  headline: 'Grip ,Stance,and Swing',
+                  time: '20',
+                  imagePath: 'assets/river.jpg',
+                  gamename: 'Table tennis',
+                );
               }),
             ),
           ),
-
-
-
-
-
-
-         
-          h200
+          h50,
         ],
       ))),
     );
